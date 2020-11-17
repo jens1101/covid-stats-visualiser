@@ -10,16 +10,20 @@ export function App() {
   const country = "south-africa";
   const status = Status.Confirmed;
 
-  const [stats, setStats] = useState([]);
+  const [countryStats, setCountryStats] = useState([]);
 
   useEffect(() => {
-    getCountryCovidStats(country, status, fromDate, toDate).then(setStats);
+    getCountryCovidStats(country, status, fromDate, toDate).then(
+      setCountryStats
+    );
   }, [country, status, fromDate, toDate]);
 
   return (
     <div>
       <h1>COVID-19 Stats</h1>
-      <CountryCovidStats stats={stats} />
+
+      <h2>Stats by Country</h2>
+      <CountryCovidStats stats={countryStats} />
     </div>
   );
 }

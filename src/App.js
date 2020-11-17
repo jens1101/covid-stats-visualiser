@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Status } from "./constants";
-import { CovidStats } from "./CovidStats";
+import { CountryCovidStats } from "./CountryCovidStats";
 import { getCountryCovidStats } from "./providers";
 
 export function App() {
@@ -19,7 +19,7 @@ export function App() {
   return (
     <div>
       <h1>COVID-19 Stats</h1>
-      <CovidStats stats={stats} />
+      <CountryCovidStats stats={stats} />
     </div>
   );
 }

@@ -7,7 +7,7 @@
  * @return {JSX.Element}
  * @constructor
  */
-export function CovidStats({
+export function CountryCovidStats({
   stats = [],
   predictionLength = {
     months: 12,

@@ -1,5 +1,7 @@
-export const Status = {
-  Confirmed: "confirmed",
-  Recovered: "recovered",
-  Deaths: "deaths",
+export const STATUS = {
+  CONFIRMED: "confirmed",
+  RECOVERED: "recovered",
+  DEATHS: "deaths",
 };
+
+export const WINDOW_SIZE = 10;

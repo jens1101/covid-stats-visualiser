@@ -1,4 +1,4 @@
-import { groupStatsByMonth } from "./helper.js";
+import { getStatsPrediction, groupStatsByMonth } from "./helper.js";
 
 /**
  *
@@ -24,6 +24,15 @@ export function CountryCovidStats({
     )
   );
 
+  const predictionStats = Array.from(
+    groupStatsByMonth(getStatsPrediction(stats))
+  ).map(([month, cases]) => (
+    <tr key={month}>
+      <td>{month}</td>
+      <td>{cases}</td>
+    </tr>
+  ));
+
   return (
     <table>
       <thead>
@@ -32,11 +41,19 @@ export function CountryCovidStats({
           <th>Number of Cases</th>
         </tr>
       </thead>
+
       <tbody>
         <tr>
           <th colSpan={2}>Historic Stats</th>
         </tr>
         {historicalStats}
+      </tbody>
+
+      <tbody>
+        <tr>
+          <th colSpan={2}>Predicted Stats</th>
+        </tr>
+        {predictionStats}
       </tbody>
     </table>
   );

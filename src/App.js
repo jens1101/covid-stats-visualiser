@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Status } from "./constants";
+import { STATUS } from "./constants";
 import { CountryCovidStats } from "./CountryCovidStats";
 import { getCountryCovidStats } from "./providers";
 
 export function App() {
   // TODO: use the `/countries` endpoint to get all available countries.
   const country = "south-africa";
-  const status = Status.Confirmed;
+  const status = STATUS.CONFIRMED;
 
   const [countryStats, setCountryStats] = useState([]);
 

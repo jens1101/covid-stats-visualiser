@@ -5,3 +5,5 @@ export const STATUS = {
 };
 
 export const WINDOW_SIZE = 10;
+
+export const API_BASE = "https://api.covid19api.com";

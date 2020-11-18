@@ -1,10 +1,8 @@
-export async function getCountryCovidStats(country, status, fromDate, toDate) {
+export async function getCountryCovidStats(country, status) {
   const apiUrl = new URL(
-    `/country/${country}/status/${status}`,
+    `/dayone/country/${country}/status/${status}`,
     "https://api.covid19api.com"
   );
-  apiUrl.searchParams.set("from", fromDate);
-  apiUrl.searchParams.set("to", toDate);
 
   const response = await fetch(apiUrl.toString(), {
     method: "GET",

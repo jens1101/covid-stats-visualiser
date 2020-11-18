@@ -4,8 +4,6 @@ import { CountryCovidStats } from "./CountryCovidStats";
 import { getCountryCovidStats } from "./providers";
 
 export function App() {
-  const fromDate = "2020-03-01T00:00:00Z";
-  const toDate = "2020-11-01T00:00:00Z";
   // TODO: use the `/countries` endpoint to get all available countries.
   const country = "south-africa";
   const status = Status.Confirmed;
@@ -13,10 +11,8 @@ export function App() {
   const [countryStats, setCountryStats] = useState([]);
 
   useEffect(() => {
-    getCountryCovidStats(country, status, fromDate, toDate).then(
-      setCountryStats
-    );
-  }, [country, status, fromDate, toDate]);
+    getCountryCovidStats(country, status).then(setCountryStats);
+  }, [country, status]);
 
   return (
     <div>

@@ -5,7 +5,6 @@ import { getCountryCovidStats, getWorldCovidStats } from "./providers";
 import { WorldCovidStats } from "./WorldCovidStats.js";
 
 export function App() {
-  // TODO: use the `/countries` endpoint to get all available countries.
   const country = "south-africa";
   const status = STATUS.CONFIRMED;
 
@@ -21,13 +20,13 @@ export function App() {
   }, []);
 
   return (
-    <div>
+    <div className={"container"}>
       <h1>COVID-19 Stats</h1>
 
       <h2>World Stats</h2>
       <WorldCovidStats stats={worldStats} />
 
-      <h2>Stats by Country</h2>
+      <h2>South African Stats</h2>
       <CountryCovidStats stats={countryStats} />
     </div>
   );

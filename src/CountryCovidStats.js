@@ -34,11 +34,11 @@ export function CountryCovidStats({
   ));
 
   return (
-    <table>
+    <table className={"table"}>
       <thead>
         <tr>
           <th>Date</th>
-          <th>Number of Cases</th>
+          <th>Number of Confirmed Cases</th>
         </tr>
       </thead>
 

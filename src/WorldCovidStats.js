@@ -1,6 +1,6 @@
 export function WorldCovidStats({ stats = [] }) {
   return (
-    <table>
+    <table className={"table"}>
       <thead>
         <tr>
           <th>Total Confirmed</th>

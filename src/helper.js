@@ -43,7 +43,7 @@ export function getStatsPrediction(stats, predictionDuration) {
     sma.update(cases);
 
     return {
-      Cases: cases.toNumber(),
+      Cases: Math.floor(cases.toNumber()),
       Date: formatISO(Date),
     };
   });

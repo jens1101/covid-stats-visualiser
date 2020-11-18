@@ -4,14 +4,14 @@ import { getStatsPrediction, groupStatsByMonth } from "./helper.js";
  *
  * @param {Object} params
  * @param params.stats
- * @param params.predictionLength
+ * @param params.predictionDuration
  * @param params.groupBy
  * @return {JSX.Element}
  * @constructor
  */
 export function CountryCovidStats({
   stats = [],
-  predictionLength = {
+  predictionDuration = {
     months: 12,
   },
 }) {
@@ -25,7 +25,7 @@ export function CountryCovidStats({
   );
 
   const predictionStats = Array.from(
-    groupStatsByMonth(getStatsPrediction(stats))
+    groupStatsByMonth(getStatsPrediction(stats, predictionDuration))
   ).map(([month, cases]) => (
     <tr key={month}>
       <td>{month}</td>

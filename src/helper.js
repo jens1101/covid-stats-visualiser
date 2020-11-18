@@ -1,4 +1,11 @@
-import { format, parseISO, startOfMonth, addDays, formatISO } from "date-fns";
+import {
+  format,
+  parseISO,
+  startOfMonth,
+  formatISO,
+  add,
+  eachDayOfInterval,
+} from "date-fns";
 import { SMA } from "trading-signals";
 import { WINDOW_SIZE } from "./constants.js";
 
@@ -18,17 +25,26 @@ export function groupStatsByMonth(stats) {
   }, new Map());
 }
 
-export function getStatsPrediction(stats) {
+export function getStatsPrediction(stats, predictionDuration) {
+  if (stats.length < WINDOW_SIZE) {
+    return [];
+  }
+
   const sma = new SMA(WINDOW_SIZE);
   stats.slice(-WINDOW_SIZE).forEach((stat) => sma.update(stat.Cases));
 
-  return stats.map((stat) => {
+  const start = add(parseISO(stats[stats.length - 1].Date), { days: 1 });
+  const end = add(start, predictionDuration);
+
+  const predictionDates = eachDayOfInterval({ start, end });
+
+  return predictionDates.map((Date) => {
     const cases = sma.getResult();
     sma.update(cases);
 
     return {
       Cases: cases.toNumber(),
-      Date: formatISO(addDays(parseISO(stat.Date), stats.length)),
+      Date: formatISO(Date),
     };
   });
 }

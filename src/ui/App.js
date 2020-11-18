@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { STATUS } from "./constants";
-import { CountryCovidStats } from "./CountryCovidStats";
-import { getCountryCovidStats, getWorldCovidStats } from "./providers";
-import { WorldCovidStats } from "./WorldCovidStats.js";
+import { STATUS } from "common/constants";
+import { CountryCovidStats } from "ui/CountryCovidStats";
+import { getCountryCovidStats, getWorldCovidStats } from "common/providers";
+import { WorldCovidStats } from "ui/WorldCovidStats";
 
 export function App() {
   const country = "south-africa";

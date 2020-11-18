@@ -1,4 +1,4 @@
-import { getStatsPrediction, groupStatsByMonth } from "./helper.js";
+import { getStatsPrediction, groupStatsByMonth } from "common/helper";
 
 /**
  *

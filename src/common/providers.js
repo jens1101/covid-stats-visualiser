@@ -1,4 +1,4 @@
-import { API_BASE } from "./constants.js";
+import { API_BASE } from "common/constants.js";
 
 export async function getCountryCovidStats(country, status) {
   const apiUrl = new URL(

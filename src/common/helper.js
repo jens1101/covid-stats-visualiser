@@ -7,7 +7,7 @@ import {
   eachDayOfInterval,
 } from "date-fns";
 import { SMA } from "trading-signals";
-import { WINDOW_SIZE } from "./constants.js";
+import { WINDOW_SIZE } from "common/constants.js";
 
 export function groupStatsByMonth(stats) {
   return stats.reduce((groupedCases, currentStat) => {
